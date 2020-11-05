@@ -82,7 +82,7 @@ public class SaveImage extends CordovaPlugin {
         File srcFile = new File(filePath);
 
         // destination gallery folder - external storage
-        File dstGalleryFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)+"/"+myGalleryName+"/";
+        File dstGalleryFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES+"/"+myGalleryName+"/");
 
         Log.d("SaveImage", "SaveImage dstGalleryFolder: " + dstGalleryFolder);
 
