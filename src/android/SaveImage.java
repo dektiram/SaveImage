@@ -32,6 +32,7 @@ public class SaveImage extends CordovaPlugin {
     private final String WRITE_EXTERNAL_STORAGE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
     private CallbackContext callbackContext;
     private String filePath;
+    private String myGalleryName;
     
 
     @Override
@@ -54,6 +55,7 @@ public class SaveImage extends CordovaPlugin {
      */  
     private void saveImageToGallery(JSONArray args, CallbackContext callback) throws JSONException {
     	this.filePath = args.getString(0);
+    	this.myGalleryName = args.getString(1);
     	this.callbackContext = callback;
         Log.d("SaveImage", "SaveImage in filePath: " + filePath);
         
@@ -80,7 +82,7 @@ public class SaveImage extends CordovaPlugin {
         File srcFile = new File(filePath);
 
         // destination gallery folder - external storage
-        File dstGalleryFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        File dstGalleryFolder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)+"/"+myGalleryName+"/";
 
         Log.d("SaveImage", "SaveImage dstGalleryFolder: " + dstGalleryFolder);
 
